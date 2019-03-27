@@ -30,7 +30,7 @@ def get_score(ide):
 @app.route('/post/<score>/<ide>/<label>')
 def post_rescore(score, ide, label):
     session.execute( """INSERT INTO disease.stats (score, id, label) VALUES ({},'{}','{}');""".format(score,ide,label))
-    return('<h1>your information is inserted successfully!</h1>'),200
+    return('<h1>Your information is inserted successfully!</h1>'),200
 
 
 # Third-application, DELETE method
@@ -38,9 +38,9 @@ def post_rescore(score, ide, label):
 def delete_rescore(ide):
     rows = session.execute( """Select * From disease.stats where id = '{}'""".format(ide))
     if len(list(rows)) == 0:
-        return('<h1>your id does not exist!</h1>'),404
+        return('<h1>Your id does not exist!</h1>'),404
     session.execute("""DELETE FROM disease.stats WHERE id = '{}'""".format(ide))
-    return('<h1>your information is deleted successfully!</h1>'),200
+    return('<h1>Your information is deleted successfully!</h1>'),200
 
 
 # Fourth-application-1, New user Sign up: use hash to store password, store username
@@ -48,11 +48,11 @@ def delete_rescore(ide):
 def newuser_password(user, password):
     rows = session.execute( """Select * From username.data where username = '{}'""".format(user))
     if len(list(rows)) != 0:
-        return('<h1>your username already exists!</h1>')
+        return('<h1>Your username already exists!</h1>')
     else:
         pw_hash = generate_password_hash(password)
         session.execute( """INSERT INTO username.data (username, password) VALUES ('{}','{}')""".format(user,pw_hash)),200
-        return ('You username and password is safely stored!')
+        return ('<h1>Your username and password are safely stored!</h1>')
 
 
 # Fourth-application-2, Old user login: check the user name and password
@@ -63,11 +63,10 @@ def olduser_password(user, password):
     if len(row) == 0:
         return('<h1>your username does not exist!</h1>')
     else:
-        # for row in rows:
         check_hash = check_password_hash(row[0].password, password)
         if check_hash:
-            return ('pass! your are logged in now!')
-        return ('fail! your password for the username is not right!')
+            return ('<h1>Pass! your are logged in now!</h1>')
+        return ('<h1>Fail! your password for the username is not right!</h1>')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8080)
