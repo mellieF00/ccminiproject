@@ -3,8 +3,8 @@ from cassandra.cluster import Cluster
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
 
-cluster = Cluster(['35.197.194.158'])
-# cluster = Cluster(['cassandra'])
+# cluster = Cluster(['35.197.194.158'])
+cluster = Cluster(['cassandra'])
 session = cluster.connect()
 app = Flask(__name__)
 
