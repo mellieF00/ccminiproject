@@ -61,7 +61,7 @@ def olduser_password(user, password):
     rows = session.execute( """Select * From username.data where username = '{}'""".format(user))
     row = list(rows)
     if len(row) == 0:
-        return('<h1>your username does not exist!</h1>')
+        return('<h1>Your username does not exist!</h1>')
     else:
         check_hash = check_password_hash(row[0].password, password)
         if check_hash:
