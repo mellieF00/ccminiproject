@@ -1,0 +1,4 @@
+pip
+Flask
+cassandra-driver    --install-option="--no-cython"
+Werkzeug
