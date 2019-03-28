@@ -1,0 +1,21 @@
+
+<html>
+<body>
+     <table>
+     	<tr>
+		  <th>score</th>
+		  <th>id</th> 
+		  <th>label</th>
+		</tr>
+     	{% for row in my_list %}
+         	<tr>
+         	{% for value in row %}
+         		{% for i in value %}
+             		<td>{{ i }}</td>
+             	{% endfor %}
+         	{% endfor %}
+         	</tr>
+        {% endfor %}
+     </table>
+ </body>
+ </html>
