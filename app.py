@@ -19,10 +19,10 @@ def hello():
         "<h3>MiniProject-Cloud Computer.</h3>")
 
 '''
-First application, GET method
-Use id as the primary key, show the score and label of that id in my database
-Parameters: id
-return: your id, score and label or a message tells that your id does not exit
+First application, GET method.
+Use id as the primary key, show the score and label of that id in my database.
+Parameters: id.
+return: your id, score and label or a message tells that your id does not exit.
 '''
 @app.route('/get/<ide>') 
 def get_score(ide):
@@ -34,8 +34,8 @@ def get_score(ide):
 
 '''
 Second-application, POST method,
-create a new row of data with id, score and label
-Parameters: id, score and label
+create a new row of data with id, score and label.
+Parameters: id, score and label.
 return: a message tells you that data is inserted succefully.
 '''
 @app.route('/post/<score>/<ide>/<label>')
@@ -45,9 +45,9 @@ def post_rescore(score, ide, label):
 
 
 '''
-Third-application, DELETE method
-delete a row of data with id
-Parameters: id
+Third-application, DELETE method.
+delete a row of data with id.
+Parameters: id.
 return: a message tells you that the row of data is deleted succefully, or tells you your id doesn't exist.
 '''
 @app.route('/delete/<ide>')
@@ -60,8 +60,8 @@ def delete_rescore(ide):
 
 
 '''
-Fourth-application, New user Sign up: use hash to store password, store username in my database
-Parameters: username, password
+Fourth-application, New user Sign up: use hash to store password, store username in my database.
+Parameters: username, password.
 return: a message tells you that you are signed up succefully, or tells you your username already exists.
 '''
 @app.route('/newuser/<user>/<password>')
@@ -75,8 +75,8 @@ def newuser_password(user, password):
         return ('<h1>Your username and password are safely stored!</h1>')
 
 '''
-Fourth-application, Old user login: check the username and password and login
-Parameters: username, password
+Fourth-application, Old user login: check the username and password and login.
+Parameters: username, password.
 return: a message tells you that you are logged in succefully, or tells you your username doesn't exit or your password is not right.
 '''
 @app.route('/olduser/<user>/<password>')
